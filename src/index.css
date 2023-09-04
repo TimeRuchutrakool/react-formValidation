@@ -41,7 +41,7 @@ code {
 .form-input > input {
   width: 100%;
   padding: 8px;
-  border: 1px solid #aaa;
+  border: 2px solid #aaa;
   border-radius: 4px;
   margin-bottom: 4px;
 }
