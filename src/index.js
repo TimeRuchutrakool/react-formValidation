@@ -44,3 +44,6 @@ function Form() {
 // Render
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Form />);
+
+// create : function Form() {}
+// render : <Form/>
