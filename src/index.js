@@ -5,19 +5,33 @@ import './index.css'; // for styling
 // Form Component
 // TASK : ผูก State กับ UI
 function Form() {
+  // Data State
   const [username, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
+  // Error State
+  const [errorUserName, setErrorUserName] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Validate Username
+    if (username.length >= 8) {
+      setErrorUserName('');
+    } else {
+      setErrorUserName('กรุณาระบุชื่อผู้ใช้งานอย่างน้อย 8 ตัวอักษร');
+    }
+  };
   return (
     <div className='container'>
-      <form className='form'>
+      <form className='form' onSubmit={handleSubmit}>
         {/* #1 : Username */}
         <div className='form-input'>
           <label>username</label>
           <input type='text' value={username} onChange={(e) => setUserName(e.target.value)} />
-          <small>กรุณาระบุชื่อผู้ใช้งานอย่างน้อย 8 ตัวอักษร</small>
+          <small>{errorUserName}</small>
         </div>
 
         {/* #2 : Email*/}
